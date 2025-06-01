@@ -1,3 +1,4 @@
+// @abidfakhri
 #include <iostream>
 #include <cstring>
 #include <iomanip>
@@ -172,10 +173,10 @@ void hapus(Node *&firstData, DataBarang data){
             char opsi;
             do{
                 cout << "Apakah anda ingin menghapus " << temp->barang.NamaBarang << " (" << temp->barang.KodeBarang << ") ? [Y/n] : "; cin >> opsi;
-                if(opsi != 'Y' && opsi != 'y' && opsi != 'N' && opsi != 'n') cout << "Opsi tidak valid.." << endl;
-            }while(opsi != 'Y' && opsi != 'y' && opsi != 'N' && opsi != 'n');
+                if(toupper(opsi) != 'Y' && toupper(opsi) != 'N') cout << "Opsi tidak valid.." << endl;
+            }while(toupper(opsi) != 'Y' && toupper(opsi) != 'N');
 
-            if (opsi == 'Y' || opsi == 'y'){
+            if(toupper(opsi) == 'Y'){
                 if (temp == firstData && temp->next == firstData){
                     delete firstData;
                     firstData = nullptr;
